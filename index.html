@@ -25,6 +25,8 @@
   --ax-x: #C2362F;
   --ax-y: #3E8E2F;
   --ax-z: #2F5FC2;
+  --pill-bg: rgba(12, 15, 18, 0.84);
+  --pill-fg: #FFFFFF;
   --f-display: "Archivo", "Arial Narrow", "Helvetica Neue", sans-serif;
   --f-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -108,6 +110,23 @@ li + li { margin-top: 4px; }
 .vp .slot b { display: block; color: var(--ink); font-weight: 500; margin-bottom: 4px; }
 .vp .gizmo { position: absolute; left: 12px; bottom: 10px; width: 44px; height: 44px; }
 .vp .tag { position: absolute; top: 10px; left: 12px; font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* Trailer thumbnail link (YouTube) */
+.thumb {
+  position: relative; display: block; aspect-ratio: 16 / 9; max-width: 100%; width: 100%;
+  border-radius: 4px; overflow: hidden; border: 1px solid var(--line); text-decoration: none;
+  background-color: var(--vp-a);
+  background-image: var(--img), linear-gradient(var(--vp-b) 1px, transparent 1px), linear-gradient(90deg, var(--vp-b) 1px, transparent 1px);
+  background-size: cover, 32px 32px, 32px 32px; background-position: center;
+}
+.thumb .play {
+  position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px 6px 8px; border-radius: 99px; background: var(--pill-bg); color: var(--pill-fg);
+  font-family: var(--f-mono); font-size: 12px;
+}
+.thumb .play svg { width: 18px; height: 18px; }
+.thumb:hover .play { background: var(--accent); }
+.tile .thumb { margin-bottom: 6px; }
 
 /* Stat strip */
 .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line); }
@@ -351,11 +370,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 
     <article class="case">
       <div class="media">
-        <div class="vp">
-          <span class="tag">Online play</span>
-          <div class="slot"><b>[VIDEO · two clients in a match]</b>Side-by-side capture showing players in sync.</div>
-          <svg class="gizmo" viewBox="0 0 44 44" aria-hidden="true"><use href="#gizmo"/></svg>
-        </div>
+        <a class="thumb" href="https://www.youtube.com/watch?v=gglWFuRXh3s" style="--img: url('https://img.youtube.com/vi/gglWFuRXh3s/hqdefault.jpg')" aria-label="Watch the Beanland trailer on YouTube">
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity="0.18"/><path d="M10 8l6 4-6 4z" fill="currentColor"/></svg>Watch trailer</span>
+        </a>
       </div>
       <div class="body">
         <h3>Beanland: online multiplayer</h3>
@@ -385,16 +402,25 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
     </div>
     <div class="grid3">
       <article class="tile">
+        <a class="thumb" href="https://www.youtube.com/watch?v=LqXNMjzSV88" style="--img: url('https://img.youtube.com/vi/LqXNMjzSV88/hqdefault.jpg')" aria-label="Watch the Modern Combat Versus trailer on YouTube">
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity="0.18"/><path d="M10 8l6 4-6 4z" fill="currentColor"/></svg>Trailer</span>
+        </a>
         <span class="mono">Online FPS · Android port</span>
         <h3>Modern Combat Versus</h3>
         <p>Owned the input system for this competitive online shooter as part of the Android porting team.</p>
       </article>
       <article class="tile">
+        <a class="thumb" href="https://www.youtube.com/watch?v=8KjCXcIq4EQ" style="--img: url('https://img.youtube.com/vi/8KjCXcIq4EQ/hqdefault.jpg')" aria-label="Watch the Gangstar New Orleans trailer on YouTube">
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity="0.18"/><path d="M10 8l6 4-6 4z" fill="currentColor"/></svg>Trailer</span>
+        </a>
         <span class="mono">Open world · Havok</span>
         <h3>Gangstar New Orleans</h3>
         <p>Made Havok compatible with Windows Store builds, fixed 3D rendering bugs and optimized the Android port.</p>
       </article>
       <article class="tile">
+        <a class="thumb" href="https://www.youtube.com/watch?v=_dj6qEmV6HM" style="--img: url('https://img.youtube.com/vi/_dj6qEmV6HM/hqdefault.jpg')" aria-label="Watch the Siegefall trailer on YouTube">
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity="0.18"/><path d="M10 8l6 4-6 4z" fill="currentColor"/></svg>Trailer</span>
+        </a>
         <span class="mono">Strategy · multiplayer</span>
         <h3>Siegefall</h3>
         <p>Tracked down multiplayer desyncs caused by floating-point differences between platforms.</p>
